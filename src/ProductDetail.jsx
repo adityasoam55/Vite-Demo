@@ -38,13 +38,11 @@ function ProductDetail({ onAddToCart }) {
     }
 
     return (
-        <div className='h-screen flex flex-col items-center justify-center pb-12'>
-            <div className="w-3/5 h-3/5 m-2 p-2 bg-white flex">
-                <div className='w-4/5 h-full'>
-                    <img className='w-full h-full' src={product.thumbnail} />
-                </div>
+        <div className='h-screen w-screen flex items-center justify-center'>
+            <div className="w-3/4 h-3/5 m-2 p-1 bg-white flex">
+                <img className='w-2/5 h-full' src={product.thumbnail} />
 
-                <div className='mx-6 my-4'>
+                <div className='mx-1 mt-4 px-1 relative'>
                     <div className='text-black font-medium text-3xl'>{product.title}</div>
                     <h3 className="text-sm mt-2 mb-1 font-medium" >${product.price}</h3>
                     <div className='text-black text-sm'>{product.description}</div>
@@ -55,7 +53,7 @@ function ProductDetail({ onAddToCart }) {
                         <span className='text-red-400'> {product.category}</span>
                     </div>
 
-                    <div className='flex justify-evenly mt-4'>
+                    <div className='flex justify-evenly mt-4 absolute bottom-2'>
                         <div>
                             {id > 1 && <Link to={"/products/" + (id - 1)} className='m-5 text-blue-700'>Previous</Link>}
                         </div>
