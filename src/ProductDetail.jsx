@@ -40,7 +40,7 @@ function ProductDetail({ onAddToCart }) {
     return (
         <div className='h-screen flex flex-col items-center justify-center pb-12'>
             <div className="w-3/5 h-3/5 m-2 p-2 bg-white flex">
-                <div className='w-2/5 h-full'>
+                <div className='w-4/5 h-full'>
                     <img className='w-full h-full' src={product.thumbnail} />
                 </div>
 
