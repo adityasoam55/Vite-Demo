@@ -5,6 +5,8 @@ import ProductDetail from './ProductDetail';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import { useState } from 'react';
+import Cart from './Cart';
+import Account from './Account';
 
 function App() {
   const path = window.location.pathname;
@@ -14,19 +16,21 @@ function App() {
   function handleAddToCart(productId, count) {
     const oldCount = cart[productId] || 0;
 
-    setCart({...cart, [productId]: oldCount + count});
+    setCart({ ...cart, [productId]: oldCount + count });
   }
 
-const totalCount = Object.keys(cart).reduce(function(previous, current){
-  return previous + cart[current];
-}, 0);
+  const totalCount = Object.keys(cart).reduce(function (previous, current) {
+    return previous + cart[current];
+  }, 0);
 
   return (
-    <div className='h-screen relative' >
-      <NavBar productCount={totalCount}/>
-      <Routes>
+    <div className='h-screen relative flex flex-col' >
+      <NavBar productCount={totalCount} />
+      <Routes className=" grow ">
         <Route index element={<ProductListPage />}></Route>
         <Route path="/products/:id" element={<ProductDetail onAddToCart={handleAddToCart} />}></Route>
+        <Route path='/cart/' element={<Cart />}></Route>
+        <Route path='/account/' element={<Account />}></Route>
       </Routes>
       <Footer />
     </div>
@@ -34,6 +38,8 @@ const totalCount = Object.keys(cart).reduce(function(previous, current){
 }
 
 export default App;
+
+
 
 
 
